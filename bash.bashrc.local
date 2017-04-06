@@ -1,7 +1,7 @@
 # Don't change these paths unless you change Dockerfile as well
 export MASAR_SERVICE=/build/masarService
 export MASAR_SERVICE_BIN=${MASAR_SERVICE}/cpp/bin/linux-x86_64
-export MASAR_SERVICE_CONFIG_DIR=${MASAR_SERVICE}
+export MASAR_SERVICE_CONFIG_DIR=/etc
 export MASAR_SERVICE_CONFIG=${MASAR_SERVICE}/masarservice.conf
 export PYTHONPATH=${MASAR_SERVICE}/python:${MASAR_SERVICE}/cpp/python2.7/linux-x86_64
 export MASAR_SQLITE_BASE_DIR=/var/lib/sqlite

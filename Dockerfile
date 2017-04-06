@@ -58,14 +58,3 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Run service
 CMD ["/usr/bin/supervisord"]
-
-# Expose default EPICS v3 ports
-EXPOSE 5064/tcp
-EXPOSE 5064/tcp
-EXPOSE 5065/udp
-EXPOSE 5065/udp
-# Expose default EPICS v4
-EXPOSE 5075/udp
-EXPOSE 5075/udp
-EXPOSE 5076/udp
-EXPOSE 5076/udp

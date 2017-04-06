@@ -45,7 +45,7 @@ EPICS_BASE=/opt/epics/base
 EOF
 
 # Backend config
-cat <<EOF > masarservice.conf
+cat <<EOF > ${MASAR_SERVICE_CONFIG}
 [Common]
 database = sqlite
 [sqlite]

@@ -15,7 +15,7 @@ if [ ! -f ${MASAR_SQLITE_CONFIG_DIR}/db_config.txt ]; then
     MASAR_SQLITE_CONFIG_FILE=${MASAR_SERVICE}/db_config.txt
 fi
 
-/build/masarService/masarConfigTool ${MASAR_SQLITE_CONFIG_FILE}
+/build/masarService/masarConfigTool -c ${MASAR_SERVICE_CONFIG} ${MASAR_SQLITE_CONFIG_FILE}
 
 # execute other arguments wait-for-it script to wait for DB
 exec "$@"

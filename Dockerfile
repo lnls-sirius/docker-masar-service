@@ -58,3 +58,11 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Run service
 CMD ["/usr/bin/supervisord"]
+
+# Expose EPICS ports
+EXPOSE 5064/tcp
+EXPOSE 5064/tcp
+EXPOSE 5065/udp
+EXPOSE 5065/udp
+EXPOSE 6678/udp
+EXPOSE 6678/udp

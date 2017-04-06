@@ -52,6 +52,31 @@ database = sqlite
 database =${MASAR_SQLITE_DB}
 EOF
 
+# Default DB config
+cat <<EOF >pvs-list1.txt
+examplepv1
+examplepv2
+examplepv3
+examplepv4
+EOF
+
+# Associate the list (aka group) with a MASAR config
+cat <<EOF > db_config.txt
+{
+"pvgroups": [{ "name": "groupname1",
+             "pvlist": "pvs-list1.txt",
+             "description": "Booster magnet power supply set points"
+           }],
+"configs": [{"config_name": "exampleconfig",
+             "config_desc": "BR ramping PS daily SCR setpoint",
+             "system": "BR"
+           }],
+"pvg2config": [{ "config_name": "exampleconfig",
+                 "pvgroups": ["groupname1"]
+              }]
+}
+EOF
+
 cd ..
 
 # Create directory for storing config/data files

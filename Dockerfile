@@ -15,6 +15,7 @@ RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
         sqlite3 \
         python-qt4 \
         python-pymongo \
+        supervisor \
     && rm -rf /var/lib/apt/lists/* \
     && pip install cothread
 
@@ -22,8 +23,8 @@ RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
 RUN git config --global user.email "masar-service-docker@masar-service-docker.com"
 RUN git config --global user.name "MASAR_SERVICE Docker"
 
-# Create build directory
-RUN mkdir -p /build
+# Create directories
+RUN mkdir -p /build /var/log/supervisor
 
 # Copy compilation scripts to build directory
 COPY setup.sh \
@@ -31,6 +32,9 @@ COPY setup.sh \
         bash.bashrc.local \
         download-install-app.sh \
         /build/
+
+# Copy supervisor config file
+COPY scripts/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Change to build directory
 WORKDIR /build
@@ -53,4 +57,4 @@ RUN ln -s usr/local/bin/docker-entrypoint.sh /
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Run service
-CMD ["/build/masarService/cpp/bin/linux-x86_64/masarServiceRun", "masarService"]
+CMD ["/usr/bin/supervisord"]

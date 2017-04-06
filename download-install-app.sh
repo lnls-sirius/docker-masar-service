@@ -58,7 +58,7 @@ cd ..
 mkdir -p ${MASAR_SQLITE_CONFIG_DIR} && chmod -R 777 ${MASAR_SQLITE_CONFIG_DIR}
 mkdir -p ${MASAR_SQLITE_DATA_DIR} && chmod -R 777 ${MASAR_SQLITE_DATA_DIR}
 
-# Build EPICS
+# Build MASAR
 cd ${MASAR_SERVICE_REPO}
 make
 cd ..

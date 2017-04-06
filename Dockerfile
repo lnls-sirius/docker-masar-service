@@ -47,6 +47,10 @@ VOLUME /var/lib/sqlite/data
 # Change to root directory
 WORKDIR /
 
+# Copy another entrypoint for user use
+COPY scripts/docker-entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-entrypoint.sh /
+ENTRYPOINT ["docker-entrypoint.sh"]
+
 # Run service
-#CMD ["sh", "-c", "/build/masarService/masarConfigTool", "/var/lib/sqlite/config/db_config.txt", "&&", "/build/masarService/cpp/bin/linux-x86_64/masarServiceRun", "masarService"]
-CMD sh -c /build/masarService/masarConfigTool /var/lib/sqlite/config/db_config.txt && /build/masarService/cpp/bin/linux-x86_64/masarServiceRun masarService
+CMD ["/build/masarService/cpp/bin/linux-x86_64/masarServiceRun", "masarService"]

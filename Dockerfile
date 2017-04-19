@@ -1,6 +1,6 @@
 # Masar server with additional configurations
 
-FROM lnls/docker-epics-dev
+FROM lnls/docker-epics-dev:v0.1.1
 
 MAINTAINER Lucas Russo
 
